@@ -18,7 +18,6 @@ import {
     string,
 } from 'prop-types';
 import classNames from 'classnames';
-import isEqual from 'lodash.isequal';
 import { ChevronIkon, KryssIkon } from '@sb1/ffe-icons-react';
 
 import List from './List';
@@ -121,22 +120,6 @@ const SearchableDropdown = ({
             onChange(null);
         }
     };
-
-    useEffect(() => {
-        if (
-            selectedItem &&
-            dropdownList.some(item => isEqual(item, selectedItem))
-        ) {
-            dispatch({
-                type: stateChangeTypes.ItemSelectedProgrammatically,
-                payload: { selectedItem },
-            });
-        } else {
-            dispatch({
-                type: stateChangeTypes.ItemClearedProgrammatically,
-            });
-        }
-    }, [selectedItem, dropdownList, dispatch]);
 
     useSetAllyMessageItemSelection({
         searchAttributes,

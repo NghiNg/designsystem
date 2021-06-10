@@ -212,3 +212,34 @@ const labelId = 'labelId1';
     />
 </InputGroup>;
 ```
+
+Kan velge element fra dropdownList i noMatch
+
+```js
+const { InputGroup } = require('../../ffe-form-react');
+const companies = require('../exampleData').companiesWithMessageCount;
+const labelId = 'labelId7';
+
+initialState = {
+    item: { organizationName: 'Ukjent navn', organizationNumber: 123 },
+};
+
+<InputGroup label="Velg bedrift" labelId={labelId}>
+    <SearchableDropdown
+        labelId={labelId}
+        inputProps={{ placeholder: 'Velg' }}
+        dropdownAttributes={['organizationName', 'organizationNumber']}
+        dropdownList={companies}
+        onChange={item => setState({ item })}
+        searchAttributes={['organizationName', 'organizationNumber']}
+        locale="nb"
+        selectedItem={state.item}
+        noMatch={{
+            dropdownList: [
+                { organizationName: 'Ukjent navn', organizationNumber: 123 },
+            ],
+            text: '',
+        }}
+    />
+</InputGroup>;
+```

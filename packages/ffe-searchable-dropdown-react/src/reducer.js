@@ -14,8 +14,6 @@ export const stateChangeTypes = {
     ItemOnClick: 'ItemOnMouseDown',
     ItemOnMouseEnter: 'ItemOnMouseEnter',
     FocusMovedOutSide: 'FocusMovedOutSide',
-    ItemSelectedProgrammatically: 'ItemSelectedProgrammatically',
-    ItemClearedProgrammatically: 'ItemClearedProgrammatically',
 };
 
 export const createReducer = ({
@@ -78,7 +76,6 @@ export const createReducer = ({
                 noMatch,
             };
         }
-        case stateChangeTypes.ItemClearedProgrammatically:
         case stateChangeTypes.ClearedInputField:
         case stateChangeTypes.ClearButtonPressed: {
             const { noMatch, listToRender } = getListToRender({
@@ -104,7 +101,6 @@ export const createReducer = ({
                 ...state,
                 isExpanded: !state.isExpanded,
             };
-        case stateChangeTypes.ItemSelectedProgrammatically:
         case stateChangeTypes.ItemOnClick:
         case stateChangeTypes.InputKeyDownEnter:
             return {
