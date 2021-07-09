@@ -66,11 +66,9 @@
         padding: @ffe-spacing @ffe-spacing-sm;
         color: @ffe-farge-vann;
         cursor: pointer;
-        border-bottom: 1px solid @ffe-farge-graa-wcag;
         .native & {
             @media (prefers-color-scheme: dark) {
                 color: @ffe-farge-vann-70;
-                border-color: @ffe-farge-graa;
             }
         }
 
@@ -171,12 +169,25 @@
 
         &--cross {
             svg {
-                fill: @ffe-farge-graa-wcag;
-                height: 11px;
-                width: 11px;
+                fill: @ffe-farge-vann;
+                height: 14px;
+                width: 14px;
+                transition: fill @ffe-transition-duration @ffe-ease;
                 .native & {
                     @media (prefers-color-scheme: dark) {
-                        fill: @ffe-farge-hvit;
+                        fill: @ffe-farge-vann-70;
+                    }
+                }
+            }
+
+            &:hover {
+                svg {
+                    fill: @ffe-farge-fjell;
+
+                    .native & {
+                        @media (prefers-color-scheme: dark) {
+                            fill: @ffe-farge-vann-30;
+                        }
                     }
                 }
             }
